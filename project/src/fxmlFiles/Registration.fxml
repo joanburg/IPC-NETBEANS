@@ -16,7 +16,7 @@
 <VBox alignment="CENTER" spacing="15" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFiles.RegistrationController">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
-    <Label prefHeight="29.0" prefWidth="175.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="User Registration" />
+    <Label prefHeight="29.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="User Registration" />
 
     <GridPane hgap="15" vgap="10">
         <Label text="Nickname:" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="TOP">
