@@ -95,3 +95,35 @@
     -fx-border-color: transparent;
     -fx-font-weight: bold;
 }
+
+.combo-box, .spinner {
+    -fx-accent: #d1d1d6;
+}
+
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(0, 0, 0, 0.1);
+    -fx-border-radius: 10;
+}
+/* ComboBox - item seleccionado en el campo (sin desplegarse) */
+.combo-box .list-cell:selected,
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1d1d1f;
+}
+
+/* ComboBox - fondo del botón arrow */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* ComboBox - items dentro del dropdown al seleccionar */
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #e5e5ea;
+    -fx-text-fill: #1d1d1f;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background-color: #d1d1d6;
+}

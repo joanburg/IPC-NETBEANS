@@ -78,7 +78,7 @@
         <children>
             <Button mnemonicParsing="false" onAction="#handleBack" prefWidth="100.0" style="-fx-padding: 10 20;" text="Go Back" />
 
-            <Button fx:id="registerButton" onAction="#handleRegister" prefWidth="120.0" style="-fx-padding: 10 30; -fx-font-weight: bold; -fx-base: #2196F3; -fx-text-fill: white;" text="Register" />
+            <Button fx:id="registerButton" id="loginBtn" onAction="#handleRegister" prefWidth="120.0" style="-fx-padding: 10 30; -fx-font-weight: bold; -fx-base: #2196F3; -fx-text-fill: white;" text="Register" />
         </children>
         <VBox.margin>
             <Insets top="15.0" />
