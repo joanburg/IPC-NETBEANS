@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerFiles.MapController">
+   <center>
+      <VBox prefHeight="556.0" prefWidth="853.0">
+         <children>
+            <SplitPane fx:id="splitPane" dividerPositions="0.25" VBox.vgrow="ALWAYS">
+               <items>
+                   <VBox spacing="10.0">
+                       <children>
+                           <Label style="-fx-font-weight: bold;" text="My Activities">
+                               <VBox.margin>
+                                   <Insets left="5.0" top="5.0" />
+                               </VBox.margin>
+                           </Label>
+                           <ListView fx:id="map_listview" VBox.vgrow="ALWAYS" />
+                           <Button maxWidth="1.7976931348623157E308"
+        mnemonicParsing="false"
+        onAction="#handleImportGPX"
+        styleClass="button-primary"
+        text="Import GPX file" />
+                          <Button maxWidth="1.7976931348623157E308"
+        mnemonicParsing="false"
+        onAction="#handleDeleteActivity"
+        styleClass="button-danger"
+        text="Delete Activity" />
+                       </children>
+                       <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                       </padding>
+                   </VBox>
+                  <ScrollPane fx:id="map_scrollpane" hbarPolicy="ALWAYS" onMouseMoved="#showPosition" pannable="true" prefHeight="398.0" prefWidth="358.0" vbarPolicy="ALWAYS">
+                     <content>
+                        <Pane fx:id="mapPane">
+                           <children>
+                              <ImageView fx:id="mapView" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../maps/upv.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </content>
+                  </ScrollPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" fillHeight="false" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+             <MenuBar HBox.hgrow="NEVER">
+                 <menus>
+                     <Menu mnemonicParsing="false" onShowing="#onMenuShowing" text="User">
+                         <items>
+                             <MenuItem mnemonicParsing="false" onAction="#handleProfile" text="Edit Profile" />
+                             <MenuItem mnemonicParsing="false" onAction="#handleSessions" text="Session History" />
+                             <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Log Out" />
+                         </items>
+                     </Menu>
+                     <Menu mnemonicParsing="false" onShowing="#onMenuShowing" text="Maps">
+                         <items>
+                             <MenuItem mnemonicParsing="false" onAction="#handleAddMapMenu" text="Add new map" />
+                         </items>
+                     </Menu>
+                 </menus>
+             </MenuBar>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="cumulativeButton" mnemonicParsing="false" onAction="#handleCumulative" text="Show Monthly Statistics" />
+            <Button fx:id="statsButton" mnemonicParsing="false" onAction="#handleStats" text="Show Statistics" />
+            <HBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 5;">
+               <children>
+                  <Label text="Zoom" />
+                  <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
+                  <Slider fx:id="zoom_slider" majorTickUnit="0.5" max="2.0" min="0.5" value="1.0" />
+                  <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="mousePosition" text="Coord: (0, 0)" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="sessionStats" text="Session: 0 activities imported" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
